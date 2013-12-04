@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/opt/gitlab-6.3.0-0/gitlab_management/sync_github/sync_github something chetui chetui
+#/opt/gitlab-6.3.0-0/chetui/sync_github gem5 lzyerste lzyerste

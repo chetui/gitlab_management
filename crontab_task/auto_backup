@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/opt/gitlab-6.3.0-0/gitlab_management/auto-gitlab-backup/auto-gitlab-backup.sh &> >(/usr/local/bin/php -n -f /opt/gitlab-6.3.0-0/gitlab_management/phpmailer/sendmail.php "GitLab Auto-Backup55" >> /opt/gitlab-6.3.0-0/gitlab_management/phpmailer/sendmail.log);

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+source /root/.bashrc;
+
+GIT_REPO=/tmp/
+ 
+##GITLab
+GIT="$1.git"
+GITLAB_GROUP="$3"
+GITLAB_GIT="git@arc.zju.edu.cn:${GITLAB_GROUP}/${GIT}"
+ 
+#GITHub
+GITHUB_ORG="$2"
+GITHUB_GIT="https://github.com/${GITHUB_ORG}/${GIT}"
+ 
+echo "/-------------------------------------------------"
+echo "gitlab:${GITLAB_GIT}"
+echo "github:${GITHUB_GIT}"
+echo "begin_time:"`date`
+#Temp Dir
+GIT_DIR=${GIT_REPO}/${GIT}
+ 
+cd ${GIT_REPO}
+rm -rf ${GIT_DIR}
+echo `git clone --bare ${GITHUB_GIT}`
+echo "clone result:"$?
+cd ${GIT_DIR}
+git push --mirror ${GITLAB_GIT}
+echo "push  result:"$?
+cd ..
+rm -rf ${GIT_DIR}
+echo "end_time:"`date`
+echo "\-------------------------------------------------"
